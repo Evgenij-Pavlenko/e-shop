@@ -29,6 +29,7 @@ public class GoodsDaoImpl implements GoodsDao {
         return (Goods) session.get(Goods.class, id);
     }
 
+
     @Override
     public Goods update(Goods goods) {
         Session session = sessionFactory.getCurrentSession();
