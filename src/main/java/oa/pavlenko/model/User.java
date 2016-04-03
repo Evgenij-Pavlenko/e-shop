@@ -23,6 +23,7 @@ public class User {
     @Column(name = "age")
     private Integer age;
 
+
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
@@ -99,6 +100,14 @@ public class User {
         this.adress = adress;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public Set<Order> getOrders() {
         return orders;
     }
@@ -106,4 +115,20 @@ public class User {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "Id=" + Id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", adress='" + adress + '\'' +
+                ", orders=" + orders +
+                '}';
+    }
+
+
 }
