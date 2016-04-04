@@ -2,7 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page isELIgnored="false" %>
 <%@ include file="top.jsp" %>
-<%--start of body page--%>
+
+
 <h1>Новый продукт</h1>
 <form class="form" action="/goods/addForm" method="post">
     <div class="form-group">

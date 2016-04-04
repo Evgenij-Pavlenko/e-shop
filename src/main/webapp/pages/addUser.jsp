@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@page isELIgnored="false" %>
 <%--<%    pageContext.setAttribute("role", Role.class.getEnumConstants()); %>--%>
 <%--<%    pageContext.setAttribute("monEnum", Role.ListTypeAffichage.values()); %>--%>
@@ -54,6 +55,7 @@
 
         <%--Будет видно только для админа--%>
         <%--Получилось сделать список ролей автоматом--%>
+        <sec:authorize access="hasRole('ROLE_ADMIN')" >
         <div class="form-group">
             <label for="role">Введите роль пользователя:</label>
             <c:set var="role" value="<%=Role.values()%>"/>
@@ -63,6 +65,7 @@
                 </c:forEach>
             </select>
         </div>
+        </sec:authorize>
 
 
         <button type="submit" class="btn btn-success" value="Добавить"/>

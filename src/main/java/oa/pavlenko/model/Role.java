@@ -1,7 +1,8 @@
 package oa.pavlenko.model;
 
 public enum Role {
-    ANONIM("anonim"), USER("user"), ADMIN("admin");
+    ROLE_ANONYMOUS("anonim"), ROLE_USER("user"), ROLE_ADMIN("admin");
+
 
    private String displayName;
 

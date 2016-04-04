@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="ces" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page isELIgnored="false" %>
 <html>
 <head>
@@ -36,7 +38,9 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/goods">Товары</a></li>
                     <%--Сделать видимым только для админа--%>
-                    <li class="active"><a href="/users">Пользователи</a></li>
+                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <li class="active"><a href="/users">Пользователи</a></li>
+                    </sec:authorize>
                     <%--<li><a href="#">Link</a></li>--%>
                     <%--<li class="dropdown">--%>
                     <%--<a href="#" class="dropdown-toggle, active" data-toggle="dropdown">Dropdown <b--%>

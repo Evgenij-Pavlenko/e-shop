@@ -54,7 +54,8 @@ public class UserController {
         user.setEmail(email);
         user.setPassword(password);
         user.setAge(Integer.valueOf(age));
-        user.setRole(Role.valueOf(role));
+        if (role == null) user.setRole(Role.ROLE_USER);
+            else user.setRole(Role.valueOf(role));
         user.setAdress(adress);
 
         userService.create(user);
