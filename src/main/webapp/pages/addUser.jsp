@@ -65,7 +65,7 @@
         </div>
 
 
-        <button type="submit" class="btn btn-success" value="add">Добавить</button>
+        <button type="submit" class="btn btn-success" value="Добавить"/>
     </div>
 </form>
 

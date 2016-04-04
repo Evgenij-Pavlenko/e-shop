@@ -45,7 +45,7 @@ public class GoodsController {
 
         Long id = goodsService.create(goods).getId();
 
-        return "redirect:/product/update/" + id;
+        return "redirect:/goods/update/" + id;
     }
 
     @RequestMapping(value = "/goods/update", method = RequestMethod.POST)
@@ -68,21 +68,21 @@ public class GoodsController {
         goodsService.update(goods);
 
 
-        return "redirect:/product/update/" + goods.getId();
+        return "redirect:/goods/update/" + goods.getId();
     }
 
     @RequestMapping(value = "/goods/update/{id}", method = RequestMethod.GET)
     public String updateProductForm(@PathVariable("id") Long id, ModelMap model) {
         Goods goods = goodsService.findById(id);
-        model.addAttribute("product", goods);
+        model.addAttribute("goods", goods);
 
-        return "updateProductForm";
+        return "updateGoods";
     }
 
     @RequestMapping(value = "/goods/id/{id}", method = RequestMethod.GET)
     public String getProduct(@PathVariable("id") Long id, ModelMap model) {
         Goods goods = goodsService.findById(id);
-        model.addAttribute("product", goods);
+        model.addAttribute("goods", goods);
 
         return "good";
     }
