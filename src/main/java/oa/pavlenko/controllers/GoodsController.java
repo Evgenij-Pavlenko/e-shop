@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class GoodsController {
 
@@ -79,11 +82,25 @@ public class GoodsController {
         return "updateGoods";
     }
 
+    @RequestMapping(value = "/goods/delete/{id}", method = RequestMethod.GET)
+    public String deleteGoods(@PathVariable("id") Long id) {
+        goodsService.delete(goodsService.findById(id));
+        return "redirect:/product/admin";
+    }
+
     @RequestMapping(value = "/goods/id/{id}", method = RequestMethod.GET)
     public String getProduct(@PathVariable("id") Long id, ModelMap model) {
         Goods goods = goodsService.findById(id);
         model.addAttribute("goods", goods);
 
         return "good";
+    }
+
+    @RequestMapping(value = "/goods/admin", method = RequestMethod.GET)
+    public String getAllProductsAdmin(ModelMap model) {
+        List<Goods> goodss = new ArrayList<>();
+        goodss = goodsService.findAll();
+        model.addAttribute("goodsList", goodss);
+        return "goodsAdmin";
     }
 }

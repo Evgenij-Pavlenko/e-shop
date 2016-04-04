@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page isELIgnored="false" %>
-<%@ include file="header.jsp" %>
+<%@ include file="top.jsp" %>
 <%--start of body page--%>
 
 <p><a class="btn btn btn-primary" href="/product/add" role="button">Добавить продукт</a></p>
@@ -11,25 +11,25 @@
     <tbody>
     <tr>
         <th>ID</th>
-        <th>Vendor Code</th>
+        <th>Артикул</th>
         <th>Имя</th>
         <th>Цена</th>
-        <th>Наличие</th>
+        <th>Количество</th>
         <th></th>
     </tr>
-    <c:forEach items="${productList}" var="product">
+    <c:forEach items="${goodsList}" var="goods">
         <tr>
-            <td><c:out value="${product.getId()}"></c:out></td>
-            <td><c:out value="${product.getVendorCode()}"></c:out></td>
-            <td><c:out value="${product.getName()}"></c:out></td>
-            <td><c:out value="${product.getPrice()}"></c:out></td>
-            <td><c:out value="${product.getQuantity()}"></c:out></td>
+            <td><c:out value="${goods.getId()}"></c:out></td>
+            <td><c:out value="${goods.getGoodsCode()}"></c:out></td>
+            <td><c:out value="${goods.getName()}"></c:out></td>
+            <td><c:out value="${goods.getPrice()}"></c:out></td>
+            <td><c:out value="${goods.getNumber}"></c:out></td>
             <td>
                 <form method="get">
-                    <button class="btn btn-primary" formaction="/product/update/${product.getId()}">
+                    <button class="btn btn-primary" formaction="/goods/update/${goods.getId()}">
                         Изменить
                     </button>
-                    <button class="btn btn-danger" formaction="/product/delete/${product.getId()}">
+                    <button class="btn btn-danger" formaction="/goods/delete/${goods.getId()}">
                         Удалить
                     </button>
                 </form>
@@ -38,6 +38,3 @@
     </c:forEach>
     </tbody>
 </table>
-
-<%--end of body page--%>
-<%@ include file="footer.jsp" %>
