@@ -17,7 +17,7 @@
                     authentication-failure-url="/login.jsp?error=true"/>
         <logout logout-url="/logout" logout-success-url="/goodsList"/>
     </http>
-
+    <!--Пока только стандартные пользователи. В БД добавляются с кошерной ролью-->
     <authentication-manager>
         <authentication-provider>
             <user-service>
