@@ -8,7 +8,7 @@
   <name>e-shop Maven Webapp</name>
   <properties>
     <spring.version>4.2.5.RELEASE</spring.version>
-    <hibernate.version>4.3.6.Final</hibernate.version>
+    <hibernate.version>5.1.0.Final</hibernate.version>
     <spring-sequrity.version>4.0.4.RELEASE</spring-sequrity.version>
 
     <mysql.connector.version>5.1.31</mysql.connector.version>
@@ -71,6 +71,13 @@
       <artifactId>spring-security-config</artifactId>
       <version>${spring-sequrity.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
 
     <dependency>
       <groupId>org.springframework.security</groupId>
